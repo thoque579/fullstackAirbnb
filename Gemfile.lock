@@ -48,6 +48,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     awesome_print (1.8.0)
+    bcrypt (3.1.16)
     bindex (0.7.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
@@ -231,6 +232,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
@@ -256,7 +258,7 @@ DEPENDENCIES
   webpacker
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.7.1p83
 
 BUNDLED WITH
    1.17.2
