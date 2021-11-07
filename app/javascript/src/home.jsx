@@ -3,7 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const Home = () => (
-  <h1>Home page</h1>
+  <div>
+    <h1>test</h1>
+  </div>
+
 )
 
 document.addEventListener('DOMContentLoaded', () => {
