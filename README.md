@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# fullstackAirbnb
+>>>>>>> 21b54c9f6d63aebea5e337450ecd9db57bdcd252
