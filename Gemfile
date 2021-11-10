@@ -64,3 +64,7 @@ group :production do
   # Use pg as the database for Active Record
   # gem 'pg', '~> 1.1.3'
 end
+
+
+# Use kaminari for activerecord pagination
+gem 'kaminari'
