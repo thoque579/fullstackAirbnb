@@ -2,7 +2,7 @@
 import React from 'react';
 import { FaAirbnb } from 'react-icons/fa';
 
-const Layout = (props) => {
+const LayoutAuthen = (props) => {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand navbar-light bg-light">
@@ -13,7 +13,7 @@ const Layout = (props) => {
               <a className="nav-link" href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/login">Login</a>
+              <a className="nav-link" onClick = {props.logout}>logout</a>
             </li>
           </ul>
         </div>
@@ -28,4 +28,4 @@ const Layout = (props) => {
   );
 }
 
-export default Layout;
+export default LayoutAuthen;

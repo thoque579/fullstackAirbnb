@@ -1,8 +1,9 @@
 // home.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from '@src/layout'
-import { handleErrors } from '@src/utils/fetchHelper';
+import Layout from '@src/layout';
+import LayoutAuthen from '@src/layoutAuthen';
+import { handleErrors, safeCredentials } from '@src/utils/fetchHelper';
 import './home.scss';
 
 class Home extends React.Component {
@@ -11,7 +12,8 @@ class Home extends React.Component {
     properties: [],
     total_pages: null,
     next_page: null,
-    loading: true
+    loading: true,
+    authenticated: false
   }
 
   componentDidMount() {
@@ -25,11 +27,60 @@ class Home extends React.Component {
         loading: false
       })
     ])
+
+    fetch('/api/authenticated')
+    .then(handleErrors)
+    .then(data => {
+      this.setState({
+        authenticated: data.authenticated
+      })
+    })
+  }
+
+  logout = () => {
+    fetch('/api/sessions/destroy', safeCredentials({
+      method: "DELETE"
+    }))
+    .then(handleErrors)
+    .then(res => {
+      if (res.success) {
+        window.location.href = "/"
+      } else {
+        console.log('fail');
+      }
+    })
+
   }
 
   render() {
-     const { properties, next_page, loading } = this.state;
+     const { properties, next_page, loading, authenticated } = this.state;
 
+
+     if (authenticated) {
+      return(
+        <LayoutAuthen logout = {this.logout}>
+         <div className = "container p-4">
+           <h4 className = "mb-1">Top-rated places to stay</h4>
+             <p className = "text-secondary mb-3">Explore some of the best-reviewd stays in the world</p>
+             <div className = "row">
+               {properties.map (item => {
+                   return(
+                     <div key={item.id} className="col-6 col-lg-4 mb-4 property">
+                   <a href={`/property/${item.id}`} className="text-body text-decoration-none">
+                     <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${item.image_url})` }} />
+                     <p className="text-uppercase mb-0 text-secondary"><small><b>{item.city}</b></small></p>
+                     <h6 className="mb-0">{item.title}</h6>
+                     <p className="mb-0"><small>${item.price_per_night} USD/night</small></p>
+                   </a>
+                 </div>
+                   )
+               })}
+             </div>
+             {loading && <p className = "text-danger">loading...</p>}
+         </div>
+       </LayoutAuthen>
+     )
+     }
 
 
     return(
@@ -51,7 +102,7 @@ class Home extends React.Component {
                   )
               })}
             </div>
-            {loading && <p>loading...</p>}
+            {loading && <p className = "text-danger">loading...</p>}
         </div>
       </Layout>
     )

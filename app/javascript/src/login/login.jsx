@@ -26,6 +26,19 @@ class Login extends React.Component {
       show_login: !this.state.show_login,
     })
   }
+
+  logout = () => {
+    fetch('/api/sessions/destroy', safeCredentials({
+      method: "DELETE"
+    }))
+    .then(handleErrors)
+    .then(res => {
+      if (res.success) {
+        window.location.href = "/login"
+      }
+    })
+
+  }
   render () {
     const { authenticated, show_login } = this.state;
     if (authenticated) {
@@ -36,6 +49,7 @@ class Login extends React.Component {
               <div className="col-12 col-md-9 col-lg-6 mx-auto my-4">
                 <div className="border p-4">
                   <p className="mb-0">You are already logged in 🤑</p>
+                  <button type="button" className = "btn btn-danger" type = "button" onClick = {this.logout}>Logout</button>
                 </div>
               </div>
             </div>
