@@ -9,6 +9,7 @@ class SignupWidget extends React.Component {
     password: '',
     username: '',
     error: '',
+    errorName: ''
   }
 
   handleChange = (e) => {
@@ -37,11 +38,15 @@ class SignupWidget extends React.Component {
       .then(data => {
         if (data.user) {
           this.login();
+        } else {
+          this.setState({
+            error: data.errors
+          })
         }
       })
       .catch(error => {
         this.setState({
-          error: 'Could not sign up.',
+          error: "could not sign up"
         })
       })
   }
@@ -79,6 +84,7 @@ class SignupWidget extends React.Component {
 
   render () {
     const { email, password, username, error } = this.state;
+    console.log(error);
     return (
       <React.Fragment>
         <h4 className = "mb-3 d-flex justify-content-center">Sign Up</h4>
@@ -87,7 +93,6 @@ class SignupWidget extends React.Component {
           <input name="email" type="text" className="form-control form-control-lg mb-3" placeholder="Email" value={email} onChange={this.handleChange} required />
           <input name="password" type="password" className="form-control form-control-lg mb-3" placeholder="Password" value={password} onChange={this.handleChange} required />
           <button type="submit" className="btn btn-danger btn-block btn-lg">Sign up</button>
-          { error && <p className = "text-danger mt-2">{error}</p>}
         </form>
         <hr/>
         <p className="mb-0">Already have an account? <a className="text-primary" onClick={this.props.toggle}  style = {{cursor: "pointer"}}>Log in</a></p>

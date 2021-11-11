@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resources :sessions, only: [:create, :destroy]
     resources :properties, only: [:create, :index, :show]
+    resources :bookings, only: [:create]
     get '/authenticated' => 'sessions#authenticated'
+
 
 
   end
