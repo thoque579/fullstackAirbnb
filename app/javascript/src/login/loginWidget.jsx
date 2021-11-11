@@ -53,6 +53,7 @@ class LoginWidget extends React.Component {
     const { email, password, error } = this.state;
     return (
       <React.Fragment>
+        <h4 className = "mb-3 d-flex justify-content-center">Log in</h4>
         <form onSubmit={this.login}>
           <input name="email" type="text" className="form-control form-control-lg mb-3" placeholder="Email" value={email} onChange={this.handleChange} required />
           <input name="password" type="password" className="form-control form-control-lg mb-3" placeholder="Password" value={password} onChange={this.handleChange} required />
@@ -60,7 +61,7 @@ class LoginWidget extends React.Component {
           {error && <p className="text-danger mt-2">{error}</p>}
         </form>
         <hr/>
-        <p className="mb-0">Don't have an account? <a className="text-primary" onClick={this.props.toggle}>Sign up</a></p>
+        <p className="mb-0">Don't have an account? <a className="text-primary" onClick={this.props.toggle} style = {{cursor: "pointer"}}>Sign up</a></p>
       </React.Fragment>
     )
   }

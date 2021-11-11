@@ -13,7 +13,7 @@ const LayoutAuthen = (props) => {
               <a className="nav-link" href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" onClick = {props.logout}>logout</a>
+              <a className="nav-link text-danger" onClick = {props.logout} style = {{cursor: "pointer"}}>Log out</a>
             </li>
           </ul>
         </div>
