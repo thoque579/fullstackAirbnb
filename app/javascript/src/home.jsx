@@ -19,14 +19,14 @@ class Home extends React.Component {
   componentDidMount() {
     fetch('/api/properties?page=1')
     .then(handleErrors)
-    .then(data => [
+    .then(data => {
       this.setState({
         properties: data.properties,
         total_pages: data.total_pages,
         next_page: data.next_page,
         loading: false
       })
-    ])
+    })
 
     fetch('/api/authenticated')
     .then(handleErrors)
@@ -138,9 +138,6 @@ class Home extends React.Component {
       </Layout>
     )
   }
-
-
-
 
 }
 

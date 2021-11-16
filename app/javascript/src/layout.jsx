@@ -6,7 +6,7 @@ const Layout = (props) => {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand navbar-light bg-light">
-        <a href="/"><span className="navbar-brand mb-0 h1 text-danger"><FaAirbnb /> Airbnb</span></a>
+        <a href="/"><span className="navbar-brand mb-0 h1 text-danger"><FaAirbnb /> airbnb</span></a>
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -21,7 +21,7 @@ const Layout = (props) => {
       {props.children}
       <footer className="p-3 bg-light">
         <div>
-          <p className="mr-3 mb-0 text-secondary">Airbnb Clone</p>
+          <p className="mr-3 mb-0 text-primary">Airbnb Clone</p>
         </div>
       </footer>
     </React.Fragment>
