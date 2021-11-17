@@ -8,8 +8,13 @@ class StaticPagesController < ApplicationController
     end
 
     def property
-    @data = { property_id: params[:id] }.to_json
-    render 'property'
-  end
+      @data = { property_id: params[:id] }.to_json
+      render 'property'
+    end
+
+    def indexProperty
+      render 'indexProperties'
+    end
+
 
 end

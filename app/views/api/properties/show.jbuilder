@@ -11,6 +11,9 @@ json.property do
   json.beds @property.beds
   json.baths @property.baths
   json.image_url @property.image_url
+  if @property.image.present?
+    json.image_url url_for(@property.image)
+  end
 
   json.user do
     json.id @property.user.id
