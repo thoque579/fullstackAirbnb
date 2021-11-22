@@ -21,7 +21,7 @@ const Layout = (props) => {
       {props.children}
       <footer className="p-3 bg-light">
         <div>
-          <p className="mr-3 mb-0 text-primary">Airbnb Clone</p>
+          <p className="mr-3 mb-0">Airbnb Clone</p>
         </div>
       </footer>
     </React.Fragment>

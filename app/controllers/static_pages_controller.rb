@@ -12,7 +12,11 @@ class StaticPagesController < ApplicationController
       render 'property'
     end
 
-    def indexProperty
+    def hostMain
+      render 'hostMain'
+    end
+
+    def indexProperties
       render 'indexProperties'
     end
 

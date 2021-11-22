@@ -5,6 +5,8 @@ import LayoutAuthen from "@src/layoutAuthen";
 import { handleErrors, safeCredentials, safeCredentialsFormData } from '@utils/fetchHelper';
 import { AiFillPlusCircle } from 'react-icons/ai'
 import { AiFillMinusCircle } from 'react-icons/ai'
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+
 import "./host.scss"
 
     class Host extends React.Component {
@@ -16,14 +18,16 @@ import "./host.scss"
           title: '',
           property_type: '',
           city: '',
-          country: '',
+          country: 'U.S.A',
           price_per_night: 50,
           description: '',
           bedrooms: 1,
           beds: 1,
           baths: 1,
           max_guests: 1,
-          loading: true
+          loading: true,
+          country: '',
+          region: ''
         }
       }
 
@@ -76,10 +80,19 @@ import "./host.scss"
             this.setState({image_url: e.target.files[0]})
           }
 
-          propertySubmit = (e) => {
-              if (e) {
-                e.preventDefault();
-              }
+
+                selectCountry (val) {
+                    this.setState({ country: val });
+                  }
+
+                selectRegion (val) {
+                  this.setState({ city: val });
+                }
+
+                propertySubmit = (e) => {
+                    if (e) {
+                      e.preventDefault();
+                    }
 
 
               const { title, description, property_type, price_per_night ,country, city, max_guests, bedrooms, beds, baths} = this.state;
@@ -106,7 +119,7 @@ import "./host.scss"
             }))
             .then(handleErrors)
             .then(res => {
-              // window.location = `/property/${res.property.id}`
+              window.location = `/property/${res.property.id}`
               console.log(res);
             })
             .catch(error => {
@@ -132,9 +145,9 @@ import "./host.scss"
 
           return(
             <LayoutAuthen logout = {this.logout}>
-                <div className = "container">
+                <div className = "container test">
                   <div className = "row">
-                    <div className = "border p-4 m-4" id = "form-container">
+                    <div className = "border p-4 m-5" id = "form-container">
                       <h6>
                         Want to host a property?
                       </h6>
@@ -166,18 +179,23 @@ import "./host.scss"
                           <input type="number" name="max_guests" value={this.state.max_guests} onChange = {this.onChange} min = "0" max = "16"/>
                         <fieldset>
                           <legend>Location:</legend>
-                          <input type="text" name="city" value={this.state.city} onChange = {this.onChange} required/>
-                        <select type ="text" onChange = {this.changeCountry} value = {this.state.country} placeholder = "country">
-                          <option>U.S.A</option>
-                          <option>Canada</option>
-                        </select>
+                      <div>
+                        <CountryDropdown
+                          value={this.state.country}
+                          onChange={(val) => this.selectCountry(val)}
+                          priorityOptions={["US", "CA", "GB"]} />
+                        <RegionDropdown
+                          country={this.state.country}
+                          value={this.state.city}
+                          onChange={(val) => this.selectRegion(val)} />
+                      </div>
                       </fieldset>
                       <hr />
                       <label>Bedrooms: </label>
                       <input type="number" name="bedrooms" value={this.state.bedrooms} onChange = {this.onChange} id = "numberOfBedRooms" required min = "0" max = "10"/>
                       <hr />
                         <label>Beds: </label>
-                      <input type="number" name="beds" value={this.state.beds} onChange = {this.onChange} id = "numberOfBeds"required min = "0" max = "10"/>
+                      <input type="number" name="beds" value={this.state.beds} onChange = {this.onChange} id = "numberOfBeds" required min = "0" max = "10"/>
                         <label>Baths: </label>
                       <input type="number" name="baths" value={this.state.baths} onChange = {this.onChange}  id = "numberOfBaths" required min  max = "10"/>
                         <label>Add Property Photo</label>

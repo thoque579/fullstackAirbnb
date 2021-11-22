@@ -8,7 +8,7 @@ const LayoutAuthen = (props) => {
       <nav className="navbar navbar-expand navbar-light bg-light">
         <a href="/"><span className="navbar-brand mb-0 h1 text-danger"><FaAirbnb/> airbnb</span></a>
         <div className="collapse navbar-collapse">
-          <ul className="navbar-nav" style = {{cursor: "Pointer"}}>
+          <ul className="navbar-nav ml-auto" style = {{cursor: "Pointer"}}>
             <li className="nav-item">
               <a className="nav-link" href="/">Home</a>
             </li>
@@ -22,18 +22,15 @@ const LayoutAuthen = (props) => {
       {props.children}
       <footer className="p-3 bg-light">
         <div className = "d-flex justify-content-around">
-          <section>
-            
-          </section>
         </div>
         <hr />
-        <div className = "d-flex justify-content-around">
+        <div className = "d-flex">
           <p className="mr-3 mb-0 text-secondary">© 2021 Airbnb, Inc</p>
-          <a href="" className = "text-secondary">Privacy</a>
-          <span>·</span>
-          <a href="" className = "text-secondary">Terms</a>
-          <span>·</span>
-          <a href="" className = "text-secondary">Sitemap</a>
+            <a href="" className = "text-secondary links mr-2">Privacy</a>
+            <span className = "mr-2">·</span>
+            <a href="" className = "text-secondary links mr-2">Terms</a>
+            <span className = "mr-2">·</span>
+            <a href="" className = "text-secondary links mr-2">Sitemap</a>
         </div>
       </footer>
     </React.Fragment>

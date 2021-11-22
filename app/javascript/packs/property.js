@@ -1,2 +1,2 @@
 // property.js
-import '@src/property/property';
+import '@src/property/index';
