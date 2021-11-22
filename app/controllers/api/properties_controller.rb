@@ -14,7 +14,6 @@ module Api
       render 'api/properties/show', status: :ok
     end
 
-
     def create
       token = cookies.signed[:airbnb_session_token]
       session = Session.find_by(token: token)
@@ -28,25 +27,6 @@ module Api
       end
     end
 
-    def update
-      token = cookies.signed[:airbnb_session_token]
-      session = Session.find_by(token: token)
-
-      return render json: { error: 'User is not found'}, status: :unauthorized if !session
-
-      begin
-        @property = Property.find_by(user.properties.find_by(id: params[:id]))
-
-        return render 'not_found', status: :not_found if !@property
-        return render 'bad_request', status: :bad_request if !@property.update(property_params)
-        return render '/api/properties/show', status: :ok
-
-      rescue ArgumentError => e
-        render json: { error: e.message }, status: :bad_request
-      end
-    end
-
-
     def delete
       token = cookies.signed[:airbnb_session_token]
       session = Session.find_by(token: token)
@@ -59,7 +39,6 @@ module Api
         render json: { error: e.message }, status: :bad_request
       end
     end
-
 
     private
 

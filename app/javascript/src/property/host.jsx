@@ -18,7 +18,6 @@ import "./host.scss"
           title: '',
           property_type: '',
           city: '',
-          country: 'U.S.A',
           price_per_night: 50,
           description: '',
           bedrooms: 1,
@@ -81,19 +80,18 @@ import "./host.scss"
           }
 
 
-                selectCountry (val) {
-                    this.setState({ country: val });
-                  }
+          selectCountry (val) {
+              this.setState({ country: val });
+            }
 
-                selectRegion (val) {
-                  this.setState({ city: val });
-                }
+          selectRegion (val) {
+            this.setState({ city: val });
+          }
 
-                propertySubmit = (e) => {
-                    if (e) {
-                      e.preventDefault();
-                    }
-
+          propertySubmit = (e) => {
+              if (e) {
+                e.preventDefault();
+              }
 
               const { title, description, property_type, price_per_night ,country, city, max_guests, bedrooms, beds, baths} = this.state;
 

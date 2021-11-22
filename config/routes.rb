@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/property/:id' => 'static_pages#property'
   get '/hostMain' => 'static_pages#hostMain'
   get '/indexProperties' => 'static_pages#indexProperties'
+  get '/editProperty/:id' => 'static_pages#edit'
 
   namespace :api do
     # Add routes below this line
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
     post '/charges/mark_complete' => 'charges#mark_complete'
 
     get '/properties_index/userProperties' => 'properties_index#userProperties'
+    put '/properties_index/edit' => 'properties_index#edit'
 
   end
 

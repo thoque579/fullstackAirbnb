@@ -20,5 +20,10 @@ class StaticPagesController < ApplicationController
       render 'indexProperties'
     end
 
+    def edit
+       @data = { property_id: params[:id] }.to_json
+
+      render 'edit'
+    end
 
 end
