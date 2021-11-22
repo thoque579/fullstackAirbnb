@@ -17,21 +17,25 @@ module Api
     def edit
       token = cookies.signed[:airbnb_session_token]
       session = Session.find_by(token: token)
+      return render json: { error: 'user not logged in' }, status: :unauthorized if !session
 
-      return render json: { error: 'User is not found'}, status: :unauthorized if !session
+      @property =  session.user.properties.find_by(params[:id])
+      return render json: { error: 'cannot find property' }, status: :not_found if !@property
 
-      begin
-        @property = Property.find_by(user.properties.find_by(id: params[:id]))
-
-        return render 'not_found', status: :not_found if !@property
-        return render 'bad_request', status: :bad_request if !@property.update(property_params)
-        return render '/api/properties/edit', status: :ok
-
-      rescue ArgumentError => e
-        render json: { error: e.message }, status: :bad_request
+      if @property.update(property_params)
+        render 'api/properties/show', status: :created
+      else
+        render json: { success: false }, status: :bad_request
       end
     end
 
+
+
+    private
+
+      def property_params
+        params.require(:property).permit(:title, :description, :city, :country, :property_type, :price_per_night, :max_guests, :bedrooms, :beds, :baths, :image)
+      end
 
 
 

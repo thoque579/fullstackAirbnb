@@ -89,6 +89,44 @@ class EditProperty extends React.Component {
     })
   }
 
+  updateProperty = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+
+    const { title, property_type, price_per_night, max_guests, description, country, city, bedrooms, beds, baths } = this.state;
+
+    let formData = new FormData();
+
+    let image = document.getElementById("photo-add").files[0];
+    formData.append("property[image]", image, image.name);
+
+    formData.set("property[title]", title);
+    formData.set("property[description]", description);
+    formData.set("property[property_type]", property_type);
+    formData.set("property[price_per_night]", price_per_night);
+    formData.set("property[country]", country);
+    formData.set("property[city]", city);
+    formData.set("property[max_guests]", max_guests);
+    formData.set("property[bedrooms]", bedrooms);
+    formData.set("property[beds]", beds);
+    formData.set("property[baths]", baths);
+
+    fetch('/api/properties_index/edit', safeCredentialsFormData({
+      method: 'PUT',
+      body: formData,
+    }))
+    .then(handleErrors)
+    .then(res => {
+      console.log(this.props.property_id);
+      window.location = `/property/${this.props.property_id}`
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
+
   render() {
     const { authenticated, title, property_type, price_per_night, max_guests, description, image, country, city, bedrooms, beds, baths } = this.state;
 
@@ -102,12 +140,13 @@ class EditProperty extends React.Component {
       </Layout>)
     }
 
-    return (<LayoutAuthen>
+    return (
+      <LayoutAuthen>
       <div className="container test">
         <div className="row">
           <div className="border p-4 m-5" id="form-container">
             <p>please make your changes</p>
-            <form id="property-form">
+            <form id="property-form" onSubmit = {this.updateProperty}>
               <label htmlFor="title">Property Name:
               </label>
               <input type="text" name="title" placeholder="Enter your property title" id="title" value = {title} onChange = {this.handleChange} required="required"/>
@@ -162,7 +201,8 @@ class EditProperty extends React.Component {
           </div>
         </div>
       </div>
-    </LayoutAuthen>)
+    </LayoutAuthen>
+  )
 
   }
 
