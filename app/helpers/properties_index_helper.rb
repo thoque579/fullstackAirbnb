@@ -1,0 +1,2 @@
+module PropertiesIndexHelper
+end

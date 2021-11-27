@@ -1,0 +1,51 @@
+
+
+#property-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#form-container {
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFF;
+}
+
+#numberOfBeds {
+  width: 50px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#numberOfBedRooms {
+  width: 50px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+body {
+  background-image: url('https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=2048');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.blue {
+  justify-content: flex-start;
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .blue {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .blue {
+    justify-content: center;
+  }
+}

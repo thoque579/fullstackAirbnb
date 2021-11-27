@@ -1,0 +1,113 @@
+.changeableButtons {
+  list-style: none;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.page-tab {
+  border-radius: 10px 10px 0 0;
+  border-bottom: none;
+  border-style: solid;
+}
+
+.content {
+  height: auto;
+  position: relative;
+}
+
+.main-content {
+  width: 100%;
+  border-radius: 5px;
+
+}
+
+.property-scroll {
+  overflow-y: scroll;
+  border-top: 2px solid #fff !important;
+  border-bottom: 2px solid #fff !important;
+  border-left: 2px solid #fff !important;
+  height: 75%;
+  flex-wrap: wrap;
+}
+
+.fade-in {
+  -webkit-animation: fadeIn 1.5s;
+  animation: fadeIn 1.5s;
+  opacity: 1;
+}
+
+.dummy-image {
+  border-radius: 10px;
+}
+
+
+
+.image-container {
+  flex-direction: column;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.editorial-scroll {
+  overflow-y: scroll;
+  flex-direction: row;
+}
+
+.button-container {
+  flex-direction: row;
+  align-items: flex-end;
+  float: right;
+  margin-top: 10px;
+}
+
+#edit-button {
+  margin-right: 10px;
+}
+
+.image-portion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 100%;
+}
+
+.main-property-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.info-contain {
+  flex-direction: column;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  border: 1px solid #fff;
+}
+
+.property-content {
+  border: 1px solid #fff !important;
+  overflow: auto;
+  max-height: 700px;
+  scroll-behavior: smooth;
+}
+
+.property-content::-webkit-scrollbar {
+  display: none;
+}
+
+.button-contain {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 200px;
+  align-content: center;
+}
+
+body {
+  background-image: url('https://wealthgang.com/wp-content/uploads/2020/03/how-to-make-money-on-airbnb-without-owning-a-property-960x640.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

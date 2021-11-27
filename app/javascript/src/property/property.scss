@@ -1,0 +1,23 @@
+.property-image {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  @media (min-width: 768px) {
+    height: 400px;
+  }
+}
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+}
+.button-contain {
+  flex-direction: row;
+  float: right;
+  gap: 10px;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+}

@@ -39,7 +39,9 @@ class Login extends React.Component {
               <div className="col-12 col-md-9 col-lg-6 mx-auto my-4">
                 <div className="border p-4">
                   <p className="mb-0">You are already logged in 🤑</p>
-                    <button type="button" className = "btn btn-primary" className = "d-flex justify-content-end btn btn-outline-danger btn-sm mt-2">Home page</button>
+                    <button type="button" className = "btn btn-primary" className = "d-flex justify-content-end btn btn-outline-danger btn-sm mt-2" onClick = {() => {
+                        window.location.href = '/'
+                      }}>Home page</button>
                 </div>
               </div>
             </div>

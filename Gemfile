@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.13'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+# Use Stripe for recieving payments
+gem 'stripe'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -46,6 +49,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 5.1.1'
   gem 'pry-rails', '>= 0.3.9'
   gem 'rspec-rails', '~> 4.0'
+  gem 'rails_db', '>= 2.3.1'
 end
 
 group :development do
