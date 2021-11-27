@@ -98,8 +98,8 @@ class GuestIndex extends React.Component {
         <div className = "fade-in d-flex justify-content-center">
           <div className = "container m-4">
             <div className="row justify-content-around">
-              <button className="page-tab col-6 btn btn-outline-dark" onClick={() => {
-                  window.location = '/hostMain'
+              <button className="page-tab col-6 btn btn-danger" onClick={() => {
+                  window.location = '/bookingsList'
                 }}>
                 <h4 className="text-center mb-1">Your Properties</h4>
               </button>
@@ -149,7 +149,7 @@ class GuestIndex extends React.Component {
                   <div className = "row bg-dark button-contain">
                     <div className = "row">
                       <button type="button" className = "btn btn-light mr-2" onClick = {() => { window.location.href = "/host" }}>Add new Property</button>
-                      <button type="button" className = "btn btn-danger ml-2" onClick = {() => {window.location.href = "/bookingsList"}}>Your Bookings</button>
+                      <button type="button" className = "btn btn-danger ml-2" onClick = {() => {window.location.href = "/hostMain"}}>return to property</button>
                     </div>
                   </div>
                 </div>

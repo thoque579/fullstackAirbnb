@@ -79,7 +79,7 @@ class HostMain extends React.Component {
                 }}>
                 <h4 className="text-center mb-1">Your Properties</h4>
               </button>
-              <button className="page-tab col-6 btn-outline-dark " onClick={() => {
+              <button className="page-tab col-6 btn-danger " onClick={() => {
                   window.location = '/guestIndex'
                 }}>
                 <h4 className="text-center mb-1">Your Trips</h4>
