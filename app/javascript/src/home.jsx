@@ -13,7 +13,8 @@ class Home extends React.Component {
     total_pages: null,
     next_page: null,
     loading: true,
-    authenticated: false
+    authenticated: false,
+    currentUser: ''
   }
 
   componentDidMount() {
@@ -31,8 +32,10 @@ class Home extends React.Component {
     fetch('/api/authenticated')
     .then(handleErrors)
     .then(data => {
+      console.log(data.username);
       this.setState({
-        authenticated: data.authenticated
+        authenticated: data.authenticated,
+        currentUser: data.username
       })
     })
   }
@@ -69,19 +72,20 @@ class Home extends React.Component {
 }
 
   render() {
-     const { properties, next_page, loading, authenticated } = this.state;
+     const { properties, next_page, loading, authenticated, currentUser } = this.state;
 
+     console.log(currentUser);
 
      if (authenticated) {
         return(
-          <LayoutAuthen logout = {this.logout}>
+          <LayoutAuthen logout = {this.logout} username = {currentUser}>
            <div className = "container p-4">
              <h4 className = "mb-1">Top-rated places to stay</h4>
                <p className = "text-secondary mb-3">Explore some of the best-reviewd stays in the world</p>
                <div className = "row">
                  {properties.map (item => {
                      return(
-                       <div key={item.id} className="col-6 col-lg-4 mb-4 property">
+                       <div key={item.id} className="col-12 col-md-6 col-lg-4 mb-4 property">
                      <a href={`/property/${item.id}`} className="text-body text-decoration-none">
                        <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${item.image_url})` }} />
                        <p className="text-uppercase mb-0 text-secondary"><small><b>{item.city}</b></small></p>

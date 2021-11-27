@@ -10,29 +10,18 @@ import {FaBed} from 'react-icons/fa';
 import {BsPeople} from 'react-icons/bs';
 
 class IndexProperties extends React.Component {
-  constructor(props) {
-  super(props)
-    this.state = {
-      authenticated: false,
-      property: [],
-      loading: true
-    }
-    this.fetchPropertyInformation = this.fetchPropertyInformation.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.logout = this.logout.bind(this)
-  }
 
+  state = {
+    authenticated: false,
+    property: [],
+    loading: true
+  }
 
   componentDidMount() {
     fetch('/api/authenticated').then(handleErrors).then(data => {
       this.setState({authenticated: data.authenticated})
     })
 
-    this.fetchPropertyInformation();
-
-  }
-
-  fetchPropertyInformation() {
     fetch('/api/properties_index/userProperties').then(handleErrors).then(response => {
       console.log(response);
       this.setState({
@@ -42,37 +31,27 @@ class IndexProperties extends React.Component {
     }).catch(error => {
       console.log(error);
     })
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  logout = (e) => {
+    if (e) {
+      e.preventDefault();
     }
-
-    handleChange = (e) => {
-      this.setState({
-        [e.target.name]: e.target.value
-      })
-    }
-
-
-    logout = (e) => {
-      if (e) {
-        e.preventDefault();
+    fetch('/api/sessions/destroy', safeCredentials({method: "DELETE"})).then(handleErrors).then(res => {
+      if (res.success) {
+        window.location.href = "/"
+      } else {
+        console.log('fail');
       }
-      fetch('/api/sessions/destroy', safeCredentials({method: "DELETE"})).then(handleErrors).then(res => {
-        if (res.success) {
-          window.location.href = "/"
-        } else {
-          console.log('fail');
-        }
-      })
-    }
+    })
+  }
 
-  // deleteProperty = (id) => {
-  //   fetch(`/api/delete/${id}`, safeCredentials({
-  //     method: "DELETE"
-  //   }))
-  //   .then(handleErrors)
-  //   .then(res => {
-  //
-  //   })
-  // }
 
   render() {
 
@@ -85,9 +64,6 @@ class IndexProperties extends React.Component {
         </div>
       )
     }
-
-
-    console.log(property);
 
     if (authenticated) {
       return (
@@ -105,9 +81,9 @@ class IndexProperties extends React.Component {
                           <button type="button" className="btn btn-dark mr-2" onClick = {() => {
                               window.location = '/editProperty/' + item.id
                             }}>Edit</button>
-                          <button type="button" className="btn btn-danger mr-2" onClick = {() => {
-                              alert(item.id);
-                            }}>Delete</button>
+                          <button type="button" className = "btn btn-success mr-2" onClick = {() => {
+                              window.location = '/property/' + item.id
+                            }}>View</button>
                         </div>
                         <h5 className="card-title">{item.title}</h5>
                         <h6 className="card-text">${item.price_per_night} per night</h6>

@@ -3,6 +3,7 @@
 #property-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 #form-container {
@@ -31,7 +32,20 @@ body {
 background-size: cover;
 }
 
-.test {
-  display: flex;
-  align-items: flex-start;
+
+.blue {
+  justify-content: flex-start;
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .blue {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .blue {
+    justify-content: center;
+  }
 }

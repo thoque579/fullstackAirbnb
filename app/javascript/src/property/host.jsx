@@ -26,7 +26,8 @@ import "./host.scss"
           max_guests: 1,
           loading: true,
           country: '',
-          region: ''
+          region: '',
+          currentUser: ''
         }
       }
 
@@ -36,6 +37,7 @@ import "./host.scss"
           .then(data => {
             this.setState({
               authenticated: data.authenticated,
+              currentUser: data.username,
             })
           })
       }
@@ -128,7 +130,7 @@ import "./host.scss"
 
         render() {
 
-          const { authenticated } = this.state;
+          const { authenticated, currentUser } = this.state;
 
 
           if (!authenticated) {
@@ -142,9 +144,8 @@ import "./host.scss"
 
 
           return(
-            <LayoutAuthen logout = {this.logout}>
-                <div className = "container test">
-                  <div className = "row">
+            <LayoutAuthen logout = {this.logout} username = {currentUser}>
+                  <div className = "row blue">
                     <div className = "border p-4 m-5" id = "form-container">
                       <h6>
                         Want to host a property?
@@ -202,7 +203,6 @@ import "./host.scss"
                       </form>
                     </div>
                   </div>
-                </div>
               </LayoutAuthen>
           )
         }

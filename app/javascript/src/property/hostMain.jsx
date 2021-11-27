@@ -10,6 +10,7 @@ import './hostMain.scss'
 class HostMain extends React.Component {
   state = {
     authenticated: "",
+    currentUser: "",
   }
 
 
@@ -19,6 +20,7 @@ class HostMain extends React.Component {
     .then(res => {
       this.setState({
         authenticated: res.authenticated,
+        currentUser: res.username,
       })
     })
   }
@@ -54,7 +56,7 @@ class HostMain extends React.Component {
 
     render() {
 
-      const { authenticated } = this.state
+      const { authenticated, currentUser } = this.state
 
       if (!authenticated) {
         return(
@@ -68,28 +70,32 @@ class HostMain extends React.Component {
         )
       }
       return(
-      <LayoutAuthen logout = {this.logout}>
+      <LayoutAuthen logout = {this.logout} username = {currentUser}>
         <div className = "fade-in d-flex justify-content-center">
           <div className = "container m-4">
             <div className="row justify-content-around">
-              <button className="page-tab col-6 btn btn-outline-danger active" onClick={this.props.toggle}>
+              <button className="page-tab col-6 btn btn-outline-dark active" onClick={() => {
+                  window.location = '/hostMain'
+                }}>
                 <h4 className="text-center mb-1">Your Properties</h4>
               </button>
-              <button className="page-tab col-6 btn-outline-danger ">
+              <button className="page-tab col-6 btn-outline-dark " onClick={() => {
+                  window.location = '/guestIndex'
+                }}>
                 <h4 className="text-center mb-1">Your Trips</h4>
               </button>
             </div>
             <div className = "row content">
-              <div className = "bg-danger main-content px-4 py-3 d-flex fade-in">
+              <div className = "bg-dark main-content px-4 py-3 d-flex fade-in">
                 <div className = "container property-content">
                   <IndexProperties/>
                 </div>
                 </div>
                 <div className = "container">
-                  <div className = "row bg-danger button-contain">
+                  <div className = "row bg-dark button-contain">
                     <div className = "row">
                       <button type="button" className = "btn btn-light mr-2" onClick = {() => { window.location.href = "/host" }}>Add new Property</button>
-                      <button type="button" className = "btn btn-primary ml-2" onClick = {() => {window.location.href = "/bookingsList"}}>Your Bookings</button>
+                      <button type="button" className = "btn btn-danger ml-2" onClick = {() => {window.location.href = "/bookingsList"}}>Your Bookings</button>
                     </div>
                   </div>
                 </div>

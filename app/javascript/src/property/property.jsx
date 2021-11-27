@@ -27,6 +27,7 @@ class Property extends React.Component {
     beds: '',
     baths: '',
     images: '',
+    currentUser: ''
   }
 
   componentDidMount() {
@@ -46,6 +47,7 @@ class Property extends React.Component {
       .then(data => {
         this.setState({
           authenticated: data.authenticated,
+          currentUser: data.username
         })
       })
   }
@@ -66,7 +68,7 @@ class Property extends React.Component {
 
   updateValues = (e) => {
 
-    const { title, description, city, country, property_type, price_per_night, max_guests, bedrooms, beds, baths, image_url } = this.state
+    const { title, description, city, country, property_type, price_per_night, max_guests, bedrooms, beds, baths, image_url, currentUser} = this.state
 
     if (e) {
       e.preventDefault();
@@ -105,7 +107,7 @@ class Property extends React.Component {
 
 
   render() {
-    const { property, loading, authenticated } = this.state
+    const { property, loading, authenticated, currentUser } = this.state
 
     if (loading) {
       return <p>Loading....</p>
@@ -131,12 +133,12 @@ class Property extends React.Component {
 
     if (authenticated) {
       return (
-        <LayoutAuthen logout = {this.logout}>
+        <LayoutAuthen logout = {this.logout} username = {currentUser}>
 
           <div className="property-image mb-3" style={{ backgroundImage: `url(${image_url})` }} />
             <div className="container">
               <div className="row">
-                <div className="info col-12 col-lg-8">
+                <div className=" col-12 col-lg-7">
                   <div className="mb-3">
                     <div className = "button-contain d-flex">
                       {/*current_user? <button className = "btn btn-success">Edit</button> : ""}
@@ -149,7 +151,7 @@ class Property extends React.Component {
                   <div>
                     <p className="mb-0 text-capitalize"><b>{property_type}</b></p>
                     <p>
-                      <span className="mr-3"><BsFillPeopleFill /> {max_guests} guests</span>
+                      <span className="mr-3"><BsFillPeopleFill /> {max_guests} maximum guests</span>
                       <span className="mr-3"><FaBed /> {bedrooms} bedroom</span>
                       <span className="mr-3"><BsFillDoorClosedFill /> {beds} bed</span>
                       <span className="mr-3"><FaBath /> {baths} bath</span>
@@ -158,10 +160,9 @@ class Property extends React.Component {
                   <hr />
                   <p>{description}</p>
                   <hr />
-                  <p>{max_guests} - Max guests</p>
                 </div>
                 <div className = "col-12 col-lg-5">
-                <BookingWidget property_id={id} price_per_night={price_per_night} />
+                  <BookingWidget property_id={id} price_per_night={price_per_night} />
                 </div>
               </div>
             </div>

@@ -22,7 +22,8 @@ class EditProperty extends React.Component {
       city: '',
       beds: '',
       bedrooms: '',
-      baths: ''
+      baths: '',
+      currentUser: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.onImageChange = this.onImageChange.bind(this);
@@ -31,7 +32,7 @@ class EditProperty extends React.Component {
 
   componentDidMount() {
     fetch('/api/authenticated').then(handleErrors).then(data => {
-      this.setState({authenticated: data.authenticated})
+      this.setState({authenticated: data.authenticated, currentUser: data.username})
     })
 
     fetch(`/api/properties/${this.props.property_id}`).then(handleErrors).then(data => {
@@ -94,7 +95,7 @@ class EditProperty extends React.Component {
       e.preventDefault();
     }
 
-    const { title, property_type, price_per_night, max_guests, description, country, city, bedrooms, beds, baths } = this.state;
+    const { title, property_type, price_per_night, max_guests, description, country, city, bedrooms, beds, baths, currentUser } = this.state;
 
     let formData = new FormData();
 
@@ -128,7 +129,7 @@ class EditProperty extends React.Component {
   }
 
   render() {
-    const { authenticated, title, property_type, price_per_night, max_guests, description, image, country, city, bedrooms, beds, baths } = this.state;
+    const { authenticated, title, property_type, price_per_night, max_guests, description, image, country, city, bedrooms, beds, baths, currentUser } = this.state;
 
     if (!authenticated) {
       return (<Layout>
@@ -141,8 +142,7 @@ class EditProperty extends React.Component {
     }
 
     return (
-      <LayoutAuthen>
-      <div className="container test">
+      <LayoutAuthen username = {currentUser} logout = {this.logout}>
         <div className="row">
           <div className="border p-4 m-5" id="form-container">
             <p>please make your changes</p>
@@ -193,14 +193,16 @@ class EditProperty extends React.Component {
               <label>Baths:
               </label>
               <input type="number" name="baths" id="numberOfBaths" required="required" min="min" max="10" onChange = {this.handleChange} value = {baths}/>
-              <label>Add Property Photo</label>
+              <label className = "mt-2"><h3>Change property photo</h3></label>
               <input type="file" className="image" id="photo-add" accept="image/*" onChange = {this.onImageChange}/>
-              <img src={image} alt="" height = "50px" width = "50px" />
+              <div className = "image-section">
+                <img src={image} alt="" height = "300px"  className = "mt-3 image" />
+              </div>
               <button type="submit" className="btn btn-danger mt-3">Submit</button>
             </form>
           </div>
         </div>
-      </div>
+
     </LayoutAuthen>
   )
 

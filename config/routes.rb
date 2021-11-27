@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
     get '/properties_index/userProperties' => 'properties_index#userProperties'
     put '/properties_index/edit' => 'properties_index#edit'
-
+    delete '/properties_index/delete/:id' => 'properties_index#delete'
     get '/properties_index/guest_bookings' => 'properties_index#guest_index'
     get '/properties_index/host_bookings' => 'properties_index#host_index'
   end

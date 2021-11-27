@@ -27,20 +27,9 @@ module Api
       end
     end
 
-    def delete
-      token = cookies.signed[:airbnb_session_token]
-      session = Session.find_by(token: token)
-      return render json: { error: "User is not found" }, status: :unauthorized if !session
-      begin
-        @property = Property.find_by(user.properties.find_by(id: params[:id]))
-        return render 'not_found', status: :not_found if !@property
-        return render '/api/properties/delete', status: :success if @property and @property.destroy
-      rescue ArgumentError => e
-        render json: { error: e.message }, status: :bad_request
-      end
-    end
-
     
+
+
 
 
     private

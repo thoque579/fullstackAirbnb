@@ -1,0 +1,44 @@
+/* ----------- Footer ----------- */
+
+.footerNav h5, .footerNav a {
+  font-size: 14px;
+}
+
+.footerNav h5 {
+  line-height: 18px;
+}
+
+.footerNav .social {
+  font-size: 18px;
+  height: 18px;
+}
+
+.footerBar small {
+  font-size: 14px;
+}
+
+.text-dark {
+  line-height: 3 !important;
+  font-size: 15px;
+}
+
+
+.footer-contain {
+  align-items: stretch;
+}
+
+.social-part {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.test {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 575.98px) and (max-width: 991.98px) {
+  .main-line {
+    display: none;
+  }
+}

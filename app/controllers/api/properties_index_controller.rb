@@ -61,10 +61,11 @@ module Api
       end
     end
 
+
     private
 
       def property_params
-        params.require(:property).permit(:title, :description, :city, :country, :property_type, :price_per_night, :max_guests, :bedrooms, :beds, :baths, :image)
+        params.require(:property).permit(:title, :description, :city, :country, :property_type, :price_per_night, :max_guests, :bedrooms, :beds, :baths, images: [])
       end
 
   end
