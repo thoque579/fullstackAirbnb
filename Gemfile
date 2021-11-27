@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.0.3.7'
 # Use Puma as the app server
 gem 'puma', '~> 5.2'
 # Use SCSS for stylesheets
@@ -67,9 +67,10 @@ end
 group :production do
   # Use pg as the database for Active Record
   # gem 'pg', '~> 1.1.3'
-  gem 'pg', '~> 1.2.3'
+  gem 'pg', '~> 1.1.3'
 end
 
+gem 'better_errors', '~> 2.4'
 
 # Use kaminari for activerecord pagination
 gem 'kaminari'
