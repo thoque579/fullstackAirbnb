@@ -78,14 +78,10 @@ class BookingList extends React.Component {
         <div className = "fade-in d-flex justify-content-center">
           <div className = "container m-4">
             <div className="row justify-content-around">
-              <button className="page-tab col-6 btn btn-outline-dark active" onClick = {() => {
-                  window.location = '/guestIndex'
-                }}>
+              <button className="page-tab col-6 btn btn-outline-dark active" onClick={this.props.toggle}>
                 <h4 className="text-center mb-1">Your Properties</h4>
               </button>
-              <button className="page-tab col-6 btn-danger" onClick = {() => {
-                  window.location = '/guestIndex'
-                }}>
+              <button className="page-tab col-6 btn-outline-dark ">
                 <h4 className="text-center mb-1">Your Trips</h4>
               </button>
             </div>
@@ -132,7 +128,7 @@ class BookingList extends React.Component {
                   <div className = "row bg-dark button-contain">
                     <div className = "row">
                       <button type="button" className = "btn btn-light mr-2" onClick = {() => { window.location.href = "/host" }}>Add new Property</button>
-                      <button type="button" className = "btn btn-danger ml-2" onClick = {() => {window.location.href = "/hostMain"}}>return to property</button>
+                      <button type="button" className = "btn btn-danger ml-2" onClick = {() => {window.location.href = "/bookingsList"}}>Your Bookings</button>
                     </div>
                   </div>
                 </div>

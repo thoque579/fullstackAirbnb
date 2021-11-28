@@ -4,20 +4,4 @@
     background-size: cover;
     background-position: center;
   }
-
-
-
-  @media (min-width: 992px) {
-    .property-image  {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      -webkit-transition: .3s ease-in-out;
-      transition: .3s ease-in-out;
-    }
-
-    .property-image:hover {
-      -webkit-transform: scale(1.3);
-      transform: scale(1.3);
-    }
-  }
 }

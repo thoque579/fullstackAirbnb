@@ -23,7 +23,9 @@
 }
 
 
-
+.footer-contain {
+  align-items: stretch;
+}
 
 .social-part {
   display: flex;
@@ -38,21 +40,5 @@
 @media (min-width: 575.98px) and (max-width: 991.98px) {
   .main-line {
     display: none;
-  }
-}
-
-@media (min-width: 2500px) {
-  .footer-contain {
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-
-  }
-}
-
-@media (min-width: 576px) and (max-width: 1200px){
-  .footer-contain {
-    position: relative;
   }
 }

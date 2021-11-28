@@ -73,7 +73,7 @@ class IndexProperties extends React.Component {
             return (
               <div className="container" key={item.id}>
                 <div className="row justify-content-center mt-3">
-                  <div className="col-12 col-lg-9">
+                  <div className="col-9">
                     <div className="card mb-3">
                       <img className="card-img-top" src={item.image_url} alt="Card image cap"/>
                       <div className="card-body">

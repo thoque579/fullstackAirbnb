@@ -47,7 +47,7 @@ const LayoutAuthen = (props) => {
         </div>
       </nav>
       {props.children}
-      <footer className="p-3 bg-light footer-contain">
+      <footer className="p-3 bg-light">
         <div className = "container-fluid">
           <div className = "row pt-5 d-md-flex footer-nav">
             <div className = " col-md-3 col-12">
@@ -97,7 +97,7 @@ const LayoutAuthen = (props) => {
           </div>
         </div>
         <hr />
-        <div className = "container-fluid">
+        <div className = "container-fluid footer-contain">
           <div className = "row d-flex">
             <div className = "col-6">
               <p className="mr-3 mb-0 text-dark">© 2021 Airbnb, Inc   <span> <a href="#" className = "text-dark ml-3 mr-2">Privacy</a></span><span className = "mr-2">·</span><span><a href="" className = "text-dark mr-2">Terms</a></span><span className = "mr-2">·</span><span><a href = "#" className = "text-dark mr-2">Sitemap</a></span></p>
