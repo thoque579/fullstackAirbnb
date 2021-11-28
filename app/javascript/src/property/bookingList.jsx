@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from '@src/layoutAuthen';
-import {safeCredentials, safeCredentialsFormData, handleErrors} from "@utils/fetchHelper";
+import {safeCredentials, safeCredentialsFormData, handleErrors} from "@src/utils/fetchHelper";
 import './bookingList.scss'
 
 class BookingList extends React.Component {
@@ -78,10 +78,14 @@ class BookingList extends React.Component {
         <div className = "fade-in d-flex justify-content-center">
           <div className = "container m-4">
             <div className="row justify-content-around">
-              <button className="page-tab col-6 btn btn-outline-dark active" onClick={this.props.toggle}>
+              <button className="page-tab col-6 btn btn-outline-dark active" onClick = {() => {
+                  window.location = '/guestIndex'
+                }}>
                 <h4 className="text-center mb-1">Your Properties</h4>
               </button>
-              <button className="page-tab col-6 btn-outline-dark ">
+              <button className="page-tab col-6 btn-danger" onClick = {() => {
+                  window.location = '/guestIndex'
+                }}>
                 <h4 className="text-center mb-1">Your Trips</h4>
               </button>
             </div>
@@ -128,7 +132,7 @@ class BookingList extends React.Component {
                   <div className = "row bg-dark button-contain">
                     <div className = "row">
                       <button type="button" className = "btn btn-light mr-2" onClick = {() => { window.location.href = "/host" }}>Add new Property</button>
-                      <button type="button" className = "btn btn-danger ml-2" onClick = {() => {window.location.href = "/bookingsList"}}>Your Bookings</button>
+                      <button type="button" className = "btn btn-danger ml-2" onClick = {() => {window.location.href = "/hostMain"}}>return to property</button>
                     </div>
                   </div>
                 </div>

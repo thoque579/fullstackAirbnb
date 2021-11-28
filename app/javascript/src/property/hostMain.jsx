@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from '@src/layoutAuthen';
-import { handleErrors, safeCredentials } from "@utils/fetchHelper"
-import IndexProperties from '@property/indexProperties';
+import { handleErrors, safeCredentials } from "@src/utils/fetchHelper"
+import IndexProperties from '@src/property/indexProperties';
 
 import './hostMain.scss'
 
@@ -79,7 +79,7 @@ class HostMain extends React.Component {
                 }}>
                 <h4 className="text-center mb-1">Your Properties</h4>
               </button>
-              <button className="page-tab col-6 btn-outline-dark " onClick={() => {
+              <button className="page-tab col-6 btn-danger " onClick={() => {
                   window.location = '/guestIndex'
                 }}>
                 <h4 className="text-center mb-1">Your Trips</h4>

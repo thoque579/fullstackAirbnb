@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from "@src/layoutAuthen";
-import { handleErrors, safeCredentials } from '@utils/fetchHelper';
+import { handleErrors, safeCredentials } from '@src/utils/fetchHelper';
 import BookingWidget from '@src/property/bookingWidget';
 import { BsFillPeopleFill } from 'react-icons/bs';
 import { FaBed } from 'react-icons/fa';

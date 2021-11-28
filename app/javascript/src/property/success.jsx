@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from "@src/layoutAuthen";
-import { safeCredentials, handleErrors } from '@utils/fetchHelper';
+import { safeCredentials, handleErrors } from '@src/utils/fetchHelper';
 
 class Success extends React.Component {
 
@@ -48,7 +48,7 @@ class Success extends React.Component {
 
   render() {
     const { id, price, start_date, end_date, property_type, bookedUser, hostUser, title, city, country, type, paidStatus } = this.state
-    
+
     return(
       <LayoutAuthen>
         <div className = "container">

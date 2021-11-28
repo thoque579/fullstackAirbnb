@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from '@src/layoutAuthen';
-import {safeCredentials, handleErrors} from '@utils/fetchHelper';
+import {safeCredentials, handleErrors} from '@src/utils/fetchHelper';
 import './indexProperties.scss'
 import {FaBath} from 'react-icons/fa';
 import {MdBedroomParent} from 'react-icons/md';
