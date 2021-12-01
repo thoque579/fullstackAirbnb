@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from '@src/layoutAuthen';
-import { handleErrors, safeCredentials } from "@utils/fetchHelper"
-import IndexProperties from '@property/indexProperties';
+import { handleErrors, safeCredentials } from "@src/utils/fetchHelper"
+import IndexProperties from '@src/property/indexProperties';
 
 import './guestIndex.scss'
 

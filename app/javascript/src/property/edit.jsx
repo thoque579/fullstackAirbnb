@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from '@src/layoutAuthen';
-import {safeCredentials, safeCredentialsFormData, handleErrors} from "@utils/fetchHelper";
+import {safeCredentials, safeCredentialsFormData, handleErrors} from "@src/utils/fetchHelper";
 import {CountryDropdown, RegionDropdown, CountryRegionData} from 'react-country-region-selector';
 import './edit.scss'
 

@@ -12,11 +12,20 @@ const Layout = (props) => {
         <a href="/"><span className="navbar-brand mb-0 h1 text-danger"><FaAirbnb /> airbnb</span></a>
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="/">Home</a>
+            <li className="nav-item active ">
+              <button className="btn btn-light rounded-pill btn-sm">
+                <a className="nav-link" href="/">Home</a>
+              </button>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/login">Login</a>
+            <li className="nav-item active ">
+              <button className="btn btn-light rounded-pill btn-sm">
+                <a className="nav-link" href="/">login</a>
+              </button>
+            </li>
+            <li className = "nav-item">
+              <button className="btn btn-light rounded-pill btn-sm">
+                <a href = "/hostMain" className = "nav-link"><span className = "font-weight-normal">Want to host</span></a>
+              </button>
             </li>
           </ul>
         </div>

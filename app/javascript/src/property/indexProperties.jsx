@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from '@src/layoutAuthen';
-import {safeCredentials, handleErrors} from '@utils/fetchHelper';
+import {safeCredentials, handleErrors} from '@src/utils/fetchHelper';
 import './indexProperties.scss'
 import {FaBath} from 'react-icons/fa';
 import {MdBedroomParent} from 'react-icons/md';
@@ -73,7 +73,7 @@ class IndexProperties extends React.Component {
             return (
               <div className="container" key={item.id}>
                 <div className="row justify-content-center mt-3">
-                  <div className="col-12 col-lg-9">
+                  <div className="col-9">
                     <div className="card mb-3">
                       <img className="card-img-top" src={item.image_url} alt="Card image cap"/>
                       <div className="card-body">

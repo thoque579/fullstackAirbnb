@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from '@src/layoutAuthen';
-import {safeCredentials, safeCredentialsFormData, handleErrors} from "@utils/fetchHelper";
+import {safeCredentials, safeCredentialsFormData, handleErrors} from "@src/utils/fetchHelper";
 import './bookingList.scss'
 
 class BookingList extends React.Component {

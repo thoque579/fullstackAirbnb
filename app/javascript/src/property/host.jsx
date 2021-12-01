@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from '@src/layout';
 import LayoutAuthen from "@src/layoutAuthen";
-import { handleErrors, safeCredentials, safeCredentialsFormData } from '@utils/fetchHelper';
+import { handleErrors, safeCredentials, safeCredentialsFormData } from '@src/utils/fetchHelper';
 import { AiFillPlusCircle } from 'react-icons/ai'
 import { AiFillMinusCircle } from 'react-icons/ai'
 import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
